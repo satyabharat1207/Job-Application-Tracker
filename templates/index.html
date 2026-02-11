@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>📌 Job Application Tracker</h1>
+    <a class="btn" href="/add">➕ Add New Job</a>
+    <div style="text-align:right;">
+    Welcome {{ session['user'] }} |
+    <a href="/logout">Logout</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>S.No</th> <!-- friendly serial number -->
+            <th>Company</th>
+            <th>Role</th>
+            <th>Applied Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for job in jobs %}
+        <tr>
+            <td>{{ loop.index }}</td> <!-- 1, 2, 3… in browser -->
+            <td>{{ job.company_name }}</td>
+            <td>{{ job.job_role }}</td>
+            <td>{{ job.applied_date }}</td>
+            <td>{{ job.status }}</td>
+            <td>
+                <a href="/edit/{{ job.id }}">✏ Edit</a> |
+                <a href="/delete/{{ job.id }}" onclick="return confirm('Are you sure?')">🗑 Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
