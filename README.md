@@ -85,8 +85,7 @@ applications securely.
 
 ### 1️⃣ Clone Repository
 
-    git clone https://github.com/your-username/job-tracker.git
-    cd job-tracker
+    https://github.com/satyabharat1207/Job-Application-Tracker.git
 
 ### 2️⃣ Install Dependencies
 
